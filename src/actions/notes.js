@@ -10,12 +10,25 @@ export const startNewNote = () => {
     return async( dispatch, getState ) => {
 
         const { uid } = getState().auth;
+        let number = 1;
+        let counter = number +number;
+        //let combo1= document.getElementById("combo1").value;
+        
+        
+        
+        
         
         const newNote = {
-            title: '',
+            title: `Pedido N`,
             body: '',
+            
             date: new Date().getTime()
         }
+
+
+
+
+
 
         const doc = await db.collection(`${ uid }/journal/notes`).add( newNote );
 
@@ -39,6 +52,8 @@ export const addNewNote = ( id, note ) => ({
         id, ...note
     }
 })
+
+
 
 
 export const startLoadingNotes = ( uid ) => {
